@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <h1>Statistique Des ventes</h1>
+</mat-toolbar>
+ 
+      <div class="chart-wrapper">
+        <canvas baseChart 
+            [datasets]="ChartData" 
+            [labels]="ChartLabels" 
+            [options]="ChartOptions"
+            [colors]="ChartColors" 
+            [legend]="ChartLegend" 
+            [chartType]="ChartType" 
+            [plugins]="ChartPlugins">
+        </canvas>
+    </div>

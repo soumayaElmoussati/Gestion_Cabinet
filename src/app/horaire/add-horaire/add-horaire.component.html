@@ -1,0 +1,24 @@
+
+    <h1>Gestion Des Horaires Des Rendez Vous</h1>
+ 
+    <hr>
+        <form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
+          <input type="hidden"  formControlName="id" id="id">
+          <div class="form-group">
+            <label>Code </label>
+            <input type="text" class="form-control" formControlName="code" id="code" placeholder="code" >
+          </div>
+          <div class="form-group">
+            <label>Du</label>
+            <input type="text" class="form-control" formControlName="hd" id="hd" placeholder="Heure Début">
+          </div>
+          <div class="form-group">
+            <label>Au</label>
+            <input type="text" class="form-control" formControlName="hf" id="hf" placeholder="Fin">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+            <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+    </div>
+        </form>
+  

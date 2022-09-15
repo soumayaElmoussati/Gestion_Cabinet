@@ -1,0 +1,100 @@
+<mat-toolbar color="primary">
+  
+  <div>
+  <h1>Liste Reglement</h1>
+  </div>
+
+</mat-toolbar>
+<form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+<input  type="hidden"  class="form-control" formControlName="id" id="id" >
+<div class="form-group row col-md-12">
+<div class="form-group col-md-6">
+    <label><strong>Num Reglement : </strong></label>
+    <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+</div>
+<div class="col-md-6 form-group">
+      <label>Date</label>
+    <input  type="date" class="form-control" formControlName="dateReglement">
+</div>
+<div class="col-md-6 form-group">
+  <label>Patient</label>
+  <input  type="text" class="form-control" formControlName="code">
+</div>
+<div class="col-md-6">
+    <label>Nom : </label>
+    <input class="form-control" formControlName="nom" id="nom">
+</div>
+<div class="col-md-6">
+  <label>Prénom : </label>
+  <input class="form-control" formControlName="prenom" id="prenom">
+</div>
+<div class="col-md-6">
+  <label>Observation : </label>
+  <input class="form-control" formControlName="obs" id="obs">
+</div>
+</div>
+<table class="table table-borderless">
+  <thead class="thead-light">
+    <th>Mode</th>
+    <th>N°Piece</th>
+    <th>Banque</th>
+    <th>Emetteur</th>
+    <th>Echéance</th>
+    <th>Date Réglement</th>
+    <th>
+      <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
+    </th>
+  </thead>
+  <tbody>
+      <tr *ngIf="service.list.length==0"  [class.text-danger]="!isValid && service.list.length ==0">
+          <td class="font-italic text-center" colspan="5">
+            Aucune Reglement sélectionnée ...
+          </td>
+        </tr>
+    <tr *ngFor="let item of service.list;let i=index;">
+    <td>{{item.mode}}</td>
+    <td>{{item.numpiece}}</td>
+    <td>{{item.banque}}</td>
+    <td>{{item.emetteur}}</td>
+    <td>{{item.echeance}}</td>
+    <td>{{item.dateReg}}</td>
+    <td>
+        <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)"><i class="fa fa-pencil"></i></a>
+        <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="form-group row">
+      <div class="col-sm-4 mb-3 mb-sm-0">
+      <div class="form-group">
+          <label>Total Espéce : </label>
+          <input type="text" class="form-control" id="totht" formControlName="totesp" readonly>
+      </div>
+      </div>
+      <div class="col-sm-4 mb-3 mb-sm-0">
+      <div class="form-group">
+          <label>Total Chéque  : </label>
+          <input type="text" class="form-control" id="tottva" formControlName="totchq" readonly>
+      </div>
+      </div>
+      <div class="form-group">
+        <label>Total Carte   : </label>
+        <input type="text" class="form-control" id="tottva" formControlName="totcarte" readonly>
+    </div>
+      <div class="col-sm-4 mb-3 mb-sm-0">
+      <div class="form-group">
+      <label>Total  : </label>
+      <input type="text" class="form-control" id="totttc" formControlName="total" readonly>
+      </div>
+      </div>
+
+    </div>
+<div class="form-group">
+  <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+  <a class="btn btn-outline-dark ml-1" routerLink="/lcommm"><i class="fa fa-plus-square"></i> Liste </a>
+
+</div>
+
+
+</form>

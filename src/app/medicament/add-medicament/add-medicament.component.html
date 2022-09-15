@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+    <h1>Gestion Medicament</h1>
+</mat-toolbar>
+<div class="col-md-12 col-md-offset-2">
+   
+    <form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id" id="id">
+        <div class = "row">
+        <div class="form-group">
+            <label>Code  </label>
+            <input type="text" class="form-control" formControlName="code" id="code">
+        </div>
+        <div class="form-group">
+            <label>Libelle </label>
+            <input type="text" class="form-control" formControlName="libelle" id="libelle">
+        </div>
+    
+        <div class="form-group">
+            <label>Durée Action </label>
+            <input type="text" class="form-control" formControlName="duree" id="duree">
+        </div>
+        <div class="form-group">
+            <label>Utilisation </label>
+            <input type="text" class="form-control" formControlName="utilisation" id="utilisation">
+        </div>
+        <div class="form-group">
+            <label>Contre Indication </label>
+            <input type="text" class="form-control" formControlName="ctrIndication" id="ctrIndication">
+        </div>
+        </div>
+        
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+                <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+                    <i class="fa fa-close"></i> Close</button>
+              </div>
+      
+    </form>
+</div>

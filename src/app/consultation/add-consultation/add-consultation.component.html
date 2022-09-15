@@ -1,0 +1,69 @@
+<mat-toolbar color="primary">
+<h1>Consultation</h1>
+</mat-toolbar>
+<div class="col-md-12 col-md-offset-2">
+   
+    <form [formGroup]="this.serviceApi.formData" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id" id="id">
+        <div class = "row">
+            <div class="form-group col-md-6">
+                <label>Num Consultation</label>
+                <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly >
+            </div>
+            <div class="col-md-6 form-group">
+                  <label>Date</label>
+                <input  type="date" class="form-control" formControlName="dateConsultation" id="dateConsultation">
+            </div>
+          
+  
+            <div class="form-group col-md-6">
+                <label>Patient </label>
+                <select class="form-control"  formControlName="patient" id="patient" (change)="onChange($event)">
+                    <option value="0">-Select-</option>
+                    <option *ngFor="let item of patientService.list" value="{{item.id}}">{{item.nom}}{{item.prenom}}</option>
+                </select>
+            </div>
+        <div class="form-group">
+            <label>Observation  </label>
+            <input type="text" class="form-control" formControlName="observation" id="observation">
+        </div>
+        <div class="form-group">
+            <label>Montant  </label>
+            <input type="number" class="form-control" formControlName="montant" id="montant">
+        </div>
+        <table class="table table-borderless">
+            <thead class="thead-light">
+              <th>Code</th>
+              <th>Article</th>
+              <th>Nbre</th>
+              <th>Duree</th>
+              <th>Utilisation</th>
+               <th>
+                <a class="btn btn-sm btn-success text-white" (click)="addOrdonance(null,1)"><i class="fa fa-plus"></i>Ajouter </a>
+              </th>
+            </thead>
+            <tbody>
+               
+              <tr *ngFor="let item of ordonanceService.list;let i=index;">
+              <td>{{item.code}}</td>
+              <td>{{item.libmedicament}}</td>
+              <td>{{item.nbre}}</td>
+              <td>{{item.duree}}</td>
+              <td>{{item.utilisation}}</td>
+              <td>
+                  <a class="btn btn-sm btn-info text-white" (click)="editOrdonance(item)"><i class="fa fa-pencil"></i></a>
+                  <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+                <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+                    <i class="fa fa-close"></i> Close</button>
+              </div>
+      
+    </form>
+</div>
+

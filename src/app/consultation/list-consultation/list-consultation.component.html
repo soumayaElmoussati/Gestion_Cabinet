@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+   
+    <div>
+      Liste Consultations
+    </div>
+    </mat-toolbar>
+<hr>
+<div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg">
+            <thead>
+                <tr>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Date Consultation </th>
+                    <th scope="col">Patient</th>
+                    <th scope="col">Observation</th>
+                                      <th class="text-center" scope="col">Action</th>
+                    <th>
+                        <a class="btn btn-outline-success" (click)="addConsultation()">
+                          <i class="fa fa-plus-square"></i> Create New</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr *ngFor="let item of serviceApi.list">
+                    <td>{{item.numero}} </td>
+                    <td>{{item.dateConsultation}}</td>
+                    <td>{{item.patient}}</td>
+                    <td>{{item.observation}}</td>
+                  
+                    <td><button class="btn btn-warning" (click)="selectData(item)">
+                            <i class="fa fa-pencil-square-o"></i></button></td>
+                 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

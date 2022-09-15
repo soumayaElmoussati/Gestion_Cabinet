@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <h1>Statistique Des ventes</h1>
+  </mat-toolbar>
+  <div class="chart-wrapper">
+    <canvas baseChart
+    [datasets]="radarChartData"
+    [options]="radarChartOptions"
+    [labels]="radarChartLabels"
+    [chartType]="radarChartType">
+  </canvas>
+</div>

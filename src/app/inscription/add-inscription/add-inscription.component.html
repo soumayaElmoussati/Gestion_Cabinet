@@ -1,0 +1,91 @@
+<mat-toolbar color="primary">
+    <h1>Inscription Patient</h1>
+  </mat-toolbar>
+  <div style="overflow-y: scroll; height:500px;" class="col-md-12 col-md-offset-2">
+    <div class="col-md-12 col-md-offset-2">
+    
+      <form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id" id="id">
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label>Numero : </label>
+            <input type="text" class="form-control" formControlName="numero"  readonly >
+          </div>
+          <div class="form-group col-md-4">
+            <label>Identifiant unique :</label>
+            <input type="text" class="form-control" formControlName="identUnique" id="identUnique">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Nom :</label>
+            <input type="text" class="form-control" formControlName="nom">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Prenom :</label>
+            <input type="text" class="form-control" formControlName="prenom">
+          </div>
+         
+          <div class="form-group col-md-4">
+            <label>Genre  :</label>
+            <input type="text" class="form-control" formControlName="genre" id="genre">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Date Naissance :</label>
+            <input type="text" class="form-control" formControlName="dateNaissance" id="dateNaissance">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Lieu Naissance :</label>
+            <input type="text" class="form-control" formControlName="lieu" id="lieu">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Nationalité : </label>
+            <select class="form-control" formControlName="nationalite" id="nationalite">
+              <option value="0">-Select-</option>
+              <option *ngFor="let item of nationaliteService.list" value="{{item.id}}">{{item.libelle}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Adresse :</label>
+            <input type="text" class="form-control" formControlName="adresse" id="adresse">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Ville :</label>
+            <input type="text" class="form-control" formControlName="ville" id="ville">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Telephone :</label>
+            <input type="text" class="form-control" formControlName="tel" id="tel">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Gsm :</label>
+            <input type="text" class="form-control" formControlName="gsm" id="gsm">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="email">Email :</label>
+            <input type="text" class="form-control" formControlName="email" id="email">
+          </div>
+        
+          <div class="form-group col-md-4">
+            <label for="email">Etat Civil :</label>
+            <input type="text" class="form-control" formControlName="etatCivil" id="etatCivil">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="email">Nombre d'enfant :</label>
+            <input type="text" class="form-control" formControlName="nbrEnfant" id="nbrEnfant">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="email">Nom Conjoint :</label>
+            <input type="text" class="form-control" formControlName="nomConjoint" id="nomConjoint">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="email">Lien Parenté  :</label>
+            <input type="text" class="form-control" formControlName="lienParente" id="lienParente">
+          </div>
+       </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+            <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+              <i class="fa fa-close"></i> Close</button>
+          </div>
+      </form>
+    </div>
+  </div>

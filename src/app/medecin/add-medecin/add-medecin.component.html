@@ -1,0 +1,95 @@
+<mat-toolbar color="primary">
+    <h1>Gestion Client</h1>
+  </mat-toolbar>
+  <div style="overflow-y: scroll; height:500px;" class="col-md-12 col-md-offset-2">
+          <div class="col-md-12 col-md-offset-2">
+              <h1>Medecin</h1> 
+            <form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
+              <input type="hidden"  formControlName="id" id="id">
+              <div class="row">
+              <div class="form-group">
+                <label>Code :</label>
+                <input type="text" class="form-control" formControlName="matricule" id="matricule">
+                
+              </div>
+              <div class="form-group">
+                <label>Nom :</label>
+                <input type="text" class="form-control" formControlName="nom" id="nom">
+                
+              </div>
+              <div class="form-group">
+                <label>Prenom :</label>
+                <input type="text" class="form-control" formControlName="prenom" id="prenom">
+                
+              </div>
+              <div class="form-group">
+                <label>genre:</label>
+                <input type="text" class="form-control" formControlName="genre" id="genre">
+                
+              </div>
+              <div class="form-group">
+                <label>Date naissance  :</label>
+                <input type="text" class="form-control" formControlName="dateNaissance" id="dateNaissance">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Nationalite </label>
+                <select class="form-control" formControlName="nationalite" id="nationalite">
+                    <option value="0">-Select-</option>
+                    <option *ngFor="let item of nationaliteService.list" value="{{item.id}}">{{item.libelle}}</option>
+                </select>
+            </div>
+              <div class="form-group">
+                  <label>adresse</label>
+                  <input type="text" class="form-control" formControlName="adresse" id="adresse">
+                 
+                </div>
+                <div class="form-group">
+                  <label>Telephone</label>
+                  <input type="text" class="form-control" formControlName="tel" id="tel">
+                  
+                </div>
+                <div class="form-group">
+                  <label>Gsm : </label>
+                  <input type="text" class="form-control" formControlName="gsm" id="gsm">
+                  
+                </div>
+                <div class="form-group">
+                  <label for="email">email</label>
+                  <input type="text" class="form-control" formControlName="email" id="email">
+                  
+                </div>
+                <div class="form-group">
+                  <label>fax</label>
+                  <input type="text" class="form-control" formControlName="fax" id="fax">
+                  
+                </div> 
+                <div class="form-group col-md-6">
+                  <label>Categorie  </label>
+                  <select class="form-control" formControlName="categorie" id="categorie">
+                      <option value="0">-Select-</option>
+                      <option *ngFor="let item of categorieService.list" value="{{item.id}}">{{item.libelle}}</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Specialite </label>
+                <select class="form-control" formControlName="specialite" id="specialite">
+                    <option value="0">-Select-</option>
+                    <option *ngFor="let item of specialiteService.list" value="{{item.id}}">{{item.libelle}}</option>
+                </select>
+            </div>
+          </div>      
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+                    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+                        <i class="fa fa-close"></i> Close</button>
+                  </div>
+                  
+            </form>
+          </div>
+        </div>
+      
+      
+      
+      
+  
